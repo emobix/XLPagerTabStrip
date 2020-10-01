@@ -13,19 +13,14 @@ let package = Package(
             targets: ["XLPagerTabStrip"]
         )
     ],
+    dependencies: [
+        .package(url: "https://github.com/Elshad/FXPageControl.git", .branch("master")),
+    ],
     targets: [
         .target(
             name: "XLPagerTabStrip",
-            path: "Sources",
-            exclude: [
-                "FXPageControl.h",
-                "FXPageControl.m"
-            ]
-        ),
-        .testTarget(
-            name: "XLPagerTabStripTests",
-            dependencies: ["XLPagerTabStrip"],
-            path: "Tests"
+            dependencies: ["FXPageControl"],
+            path: "Sources"
         )
     ]
 )

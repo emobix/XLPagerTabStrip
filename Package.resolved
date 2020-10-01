@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "FXPageControl",
+        "repositoryURL": "https://github.com/Elshad/FXPageControl.git",
+        "state": {
+          "branch": "master",
+          "revision": "98f9961fa64860414fe1e14690bac8d69b86d4cf",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
