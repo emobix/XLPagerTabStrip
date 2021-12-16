@@ -14,7 +14,7 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/Elshad/FXPageControl.git", .branch("master")),
+        .package(url: "https://github.com/emobix/FXPageControl.git", .branch("master")),
     ],
     targets: [
         .target(
