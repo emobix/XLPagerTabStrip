@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.5
 
 import PackageDescription
 
@@ -20,7 +20,10 @@ let package = Package(
         .target(
             name: "XLPagerTabStrip",
             dependencies: ["FXPageControl"],
-            path: "Sources"
+            path: "Sources",
+            resources: [
+                  .process("ButtonCell.xib")
+            ]
         )
     ]
 )

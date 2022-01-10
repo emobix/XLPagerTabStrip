@@ -80,7 +80,7 @@ open class ButtonBarPagerTabStripViewController: PagerTabStripViewController, Pa
     }()
 
     override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        super.init(nibName: nibNameOrNil, bundle: .module)
         delegate = self
         datasource = self
     }
@@ -94,14 +94,7 @@ open class ButtonBarPagerTabStripViewController: PagerTabStripViewController, Pa
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        var bundle = Bundle.module
-        if let resourcePath = bundle.path(forResource: "XLPagerTabStrip", ofType: "bundle") {
-            if let resourcesBundle = Bundle(path: resourcePath) {
-                bundle = resourcesBundle
-            }
-        }
-        
-        buttonBarItemSpec = .nibFile(nibName: "ButtonCell", bundle: bundle, width: { [weak self] (childItemInfo) -> CGFloat in
+        buttonBarItemSpec = .nibFile(nibName: "ButtonCell", bundle: .module, width: { [weak self] (childItemInfo) -> CGFloat in
                 let label = UILabel()
                 label.translatesAutoresizingMaskIntoConstraints = false
                 label.font = self?.settings.style.buttonBarItemFont
@@ -153,7 +146,8 @@ open class ButtonBarPagerTabStripViewController: PagerTabStripViewController, Pa
         // register button bar item cell
         switch buttonBarItemSpec! {
         case .nibFile(let nibName, let bundle, _):
-            buttonBarView.register(UINib(nibName: nibName, bundle: bundle), forCellWithReuseIdentifier:"Cell")
+            let nib = UINib(nibName: nibName, bundle: .module)
+            buttonBarView.register(nib, forCellWithReuseIdentifier:"Cell")
         case .cellClass:
             buttonBarView.register(ButtonBarViewCell.self, forCellWithReuseIdentifier:"Cell")
         }
